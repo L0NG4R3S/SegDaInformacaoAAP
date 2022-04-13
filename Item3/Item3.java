@@ -147,9 +147,7 @@ public class Item3 {
 
 
 					if (linha != null && userBlocked == false) {
-						FileWriter arq2 = new FileWriter("autenticacao3.txt");
-						PrintWriter gravarArq2 = new PrintWriter(arq2);
-
+		
 						String l = leitor.readLine();
 						ArrayList<String> salvar = new ArrayList<String>();
 
@@ -157,7 +155,6 @@ public class Item3 {
 							if (l.contains(usuarioAutenticacao + ",") == false) {
 								salvar.add(l + "\n");
 							}
-
 							l = leitor.readLine();
 						}
 						
@@ -171,6 +168,10 @@ public class Item3 {
 							String novaLinha = userFound[0] + ", " + userFound[1] + ", " + 0 + "\n";
 							salvar.add(novaLinha);
 						}
+						
+						//Escreve o arquivo com a quantidade de erros de autenticacao do usuario atualizada
+						FileWriter arq2 = new FileWriter("autenticacao3.txt");
+						PrintWriter gravarArq2 = new PrintWriter(arq2);
 
 						for (int i = 0; i < salvar.size(); i++) {
 							gravarArq2.print(salvar.get(i));

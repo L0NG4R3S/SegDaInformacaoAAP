@@ -125,7 +125,7 @@ public class Item1 {
 						leitor.close();
 						
 						if(linha == null) {
-							System.out.print("\n\nUSUARIO NÃO ENCONTRADO");
+							System.out.print("\n\nUSUARIO NAO ENCONTRADO");
 						}
 						break;
 					case 3:
