@@ -44,6 +44,8 @@ public class Item3 {
 			PrintWriter gravarArq = new PrintWriter(arq);
 			FileReader reader = new FileReader("autenticacao3.txt");
 			BufferedReader leitor = new BufferedReader(reader);
+			FileReader readerForFile = new FileReader("autenticacao3.txt");
+			BufferedReader leitorForFile = new BufferedReader(readerForFile);
 
 			//Switch para execucao da opcao
 			switch (option) {
@@ -148,16 +150,16 @@ public class Item3 {
 
 					if (linha != null && userBlocked == false) {
 		
-						String l = leitor.readLine();
+						String l = leitorForFile.readLine();
 						ArrayList<String> salvar = new ArrayList<String>();
 
 						while (l != null) {
 							if (l.contains(usuarioAutenticacao + ",") == false) {
 								salvar.add(l + "\n");
 							}
-							l = leitor.readLine();
+							l = leitorForFile.readLine();
 						}
-						
+																		
 						//Atualiza o numero de tentativas, se as credenciais estiverem incorretas
 						if (credenciaisIncorretas == true) {
 							int tentativasAtualizadas = tentativas + 1;
@@ -168,7 +170,7 @@ public class Item3 {
 							String novaLinha = userFound[0] + ", " + userFound[1] + ", " + 0 + "\n";
 							salvar.add(novaLinha);
 						}
-						
+												
 						//Escreve o arquivo com a quantidade de erros de autenticacao do usuario atualizada
 						FileWriter arq2 = new FileWriter("autenticacao3.txt");
 						PrintWriter gravarArq2 = new PrintWriter(arq2);
@@ -176,7 +178,7 @@ public class Item3 {
 						for (int i = 0; i < salvar.size(); i++) {
 							gravarArq2.print(salvar.get(i));
 						}
-
+						
 						arq2.close();
 						gravarArq2.close();
 
@@ -188,6 +190,7 @@ public class Item3 {
 				case 3:
 					System.out.print("\nVOLTE SEMPRE!");
 					leitor.close();
+					leitorForFile.close();
 					break;
 			}
 
